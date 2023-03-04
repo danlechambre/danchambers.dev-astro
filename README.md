@@ -1,2 +1,2 @@
 # danlechambre.com
-DanLeChambre website, built with Astro
+Personal website, built with Astro
