@@ -1,3 +1,3 @@
-# DanLeChambre Website
+# Dan Chambers Website
 
-The personal website of DanLeChambre, built with Astro.
+Website of Dan Chambers, built with Astro.
