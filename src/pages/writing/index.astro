@@ -1,7 +1,20 @@
 ---
 import PageLayout from "@layouts/PageLayout.astro";
+
+const pageTitle = "Writings";
+
+const allArticles = await Astro.glob("./*.md");
 ---
 
-<PageLayout title="Dan Chambers - Writings">
-  <div>writings</div>
+<PageLayout title={pageTitle}>
+  <h1>{pageTitle}</h1>
+  <ul>
+    {
+      allArticles.map((article) => (
+        <li>
+          <a href={article.url}>{article.frontmatter.title}</a>
+        </li>
+      ))
+    }
+  </ul>
 </PageLayout>
