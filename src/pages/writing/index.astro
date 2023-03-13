@@ -1,20 +1,25 @@
 ---
-import PageLayout from "@layouts/PageLayout.astro";
+import WritingsLayout from "@layouts/WritingsLayout.astro";
 
 const pageTitle = "Writings";
 
 const allArticles = await Astro.glob("./*.md");
 ---
 
-<PageLayout title={pageTitle}>
+<WritingsLayout title={pageTitle}>
   <h1>{pageTitle}</h1>
   <ul>
     {
       allArticles.map((article) => (
         <li>
-          <a href={article.url}>{article.frontmatter.title}</a>
+          <a href={article.url}>
+            <article>
+              <h3>{article.frontmatter.title}</h3>
+              <p>{article.frontmatter.description}</p>
+            </article>
+          </a>
         </li>
       ))
     }
   </ul>
-</PageLayout>
+</WritingsLayout>
