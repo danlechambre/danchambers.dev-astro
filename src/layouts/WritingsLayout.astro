@@ -1,18 +1,23 @@
 ---
-import WritingsRoll from "@components/WritingsRoll.astro";
+import ArticlesList from "@components/ArticlesList.astro";
+import TagsList from "@components/TagsList.astro";
 import PageLayout from "./PageLayout.astro";
 
-interface Props {
-  title: string;
-  children: any;
-}
+const articlesGlob = await Astro.glob("../pages/writings/*.md");
+const tags = [...new Set(articlesGlob.map((a) => a.frontmatter.tags).flat())];
+
+const articlesListItems = articlesGlob.map((a) => ({
+  url: a.url,
+  title: a.frontmatter.title,
+}));
 ---
 
 <PageLayout title="Writings">
   <section>
     <slot />
     <aside>
-      <WritingsRoll />
+      <ArticlesList articles={articlesListItems} />
+      <TagsList tags={tags} />
     </aside>
   </section>
 </PageLayout>
