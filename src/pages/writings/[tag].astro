@@ -1,0 +1,47 @@
+---
+import Article from "@components/Article.astro";
+import WritingsLayout from "@layouts/WritingsLayout.astro";
+import type { MarkdownInstance } from "astro";
+
+interface Props {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  articles: MarkdownInstance<Record<string, any>>[];
+}
+
+export async function getStaticPaths() {
+  const articles = await Astro.glob("./*.md");
+
+  const tags = [...new Set(articles.map((a) => a.frontmatter.tags).flat())];
+
+  return tags.map((t) => {
+    const filteredByTag = articles.filter((a) =>
+      a.frontmatter.tags.includes(t)
+    );
+
+    return {
+      params: { tag: t },
+      props: { articles: filteredByTag },
+    };
+  });
+}
+
+const { tag } = Astro.params;
+const { articles } = Astro.props;
+---
+
+<WritingsLayout title={tag}>
+  <h1>Writings tagged with {tag}</h1>
+  <ul>
+    {
+      articles.map((a) => (
+        <li>
+          <Article
+            url={a.url}
+            title={a.frontmatter.title}
+            description={a.frontmatter.description}
+          />
+        </li>
+      ))
+    }
+  </ul>
+</WritingsLayout>
