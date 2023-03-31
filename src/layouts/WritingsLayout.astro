@@ -1,7 +1,7 @@
 ---
 import ArticlesList from "@components/ArticlesList.astro";
 import TagsList from "@components/TagsList.astro";
-import PageLayout from "./PageLayout.astro";
+import BaseLayout from "./BaseLayout.astro";
 
 const articlesGlob = await Astro.glob("../pages/writings/*.md");
 const tags = [...new Set(articlesGlob.map((a) => a.frontmatter.tags).flat())];
@@ -12,7 +12,7 @@ const articlesListItems = articlesGlob.map((a) => ({
 }));
 ---
 
-<PageLayout title="Writings">
+<BaseLayout title="Writings">
   <section>
     <slot />
     <aside>
@@ -20,4 +20,4 @@ const articlesListItems = articlesGlob.map((a) => ({
       <TagsList tags={tags} />
     </aside>
   </section>
-</PageLayout>
+</BaseLayout>

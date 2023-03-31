@@ -1,10 +1,9 @@
 ---
 import NavListItem from "./NavListItem.astro";
 
-// const articles = articlesGlob.map((a) => ({
-//   url: a.url,
-//   title: a.frontmatter.title,
-// }));
+interface Props {
+  articles: { url?: string; title: string }[];
+}
 
 const { articles } = Astro.props;
 ---
@@ -12,6 +11,6 @@ const { articles } = Astro.props;
 <nav>
   <h3>Articles</h3>
   <ul>
-    {articles.map((a) => <NavListItem url={a.url} text={a.title} />)}
+    {articles.map((a) => a.url && <NavListItem url={a.url} text={a.title} />)}
   </ul>
 </nav>
