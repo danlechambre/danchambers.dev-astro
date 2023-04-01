@@ -38,12 +38,10 @@ const titleText = title ? ` - ${title}` : undefined;
 </html>
 
 <style>
-  body: {
-    height: 100%;
-  }
-
   .container {
     min-height: 100vh;
+    max-width: 85ch;
+    margin: auto;
     display: flex;
     flex-direction: column;
   }
@@ -56,5 +54,6 @@ const titleText = title ? ` - ${title}` : undefined;
 
   main {
     flex-grow: 1;
+    padding: var(--spacing-3);
   }
 </style>

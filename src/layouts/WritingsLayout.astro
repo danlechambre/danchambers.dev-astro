@@ -1,23 +1,61 @@
 ---
-import ArticlesList from "@components/ArticlesList.astro";
-import TagsList from "@components/TagsList.astro";
+import NavList from "@components/NavList.astro";
 import BaseLayout from "./BaseLayout.astro";
 
 const articlesGlob = await Astro.glob("../pages/writings/*.md");
-const tags = [...new Set(articlesGlob.map((a) => a.frontmatter.tags).flat())];
 
-const articlesListItems = articlesGlob.map((a) => ({
-  url: a.url,
-  title: a.frontmatter.title,
+const tags = [
+  ...new Set(
+    articlesGlob
+      .map((a) => a.frontmatter.tags)
+      .flat()
+      .map((t) => ({
+        url: `/writings/${t}`,
+        text: t,
+      }))
+  ),
+];
+
+const articles = articlesGlob.map((a) => ({
+  url: a.url ?? "",
+  text: a.frontmatter.title,
 }));
 ---
 
 <BaseLayout title="Writings">
-  <section>
-    <slot />
+  <div class="wrapper">
+    <section>
+      <slot />
+    </section>
     <aside>
-      <ArticlesList articles={articlesListItems} />
-      <TagsList tags={tags} />
+      <NavList headerText="Tags" navItems={tags} variant="secondary" />
+      <NavList headerText="Articles" navItems={articles} />
     </aside>
-  </section>
+  </div>
 </BaseLayout>
+
+<style>
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  @media (min-width: 768px) {
+    .wrapper {
+      flex-direction: row;
+    }
+
+    section {
+      max-width: calc(100% - 12rem);
+    }
+  }
+
+  aside {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 12rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+</style>

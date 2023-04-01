@@ -1,0 +1,101 @@
+---
+import { colors } from "src/css-variables";
+
+export interface NavItem {
+  url: string;
+  text: string;
+}
+
+interface Props {
+  headerText: string;
+  navItems: NavItem[];
+  variant?: "primary" | "secondary";
+}
+
+const { headerText, navItems, variant = "primary" } = Astro.props;
+
+const classMap = {
+  primary: {
+    li: "txt-white",
+    a: "bg-primary",
+  },
+  secondary: {
+    li: "txt-black",
+    a: "bg-secondary",
+  },
+};
+
+const classes = classMap[variant];
+---
+
+<nav class="bg-dots">
+  <h3 class="nav-list-header">{headerText}</h3>
+  <ul>
+    {
+      navItems.map((navItem) => (
+        <li class={`truncate ${classes.li}`}>
+          <a class={`link ${classes.a}`} href={navItem.url}>
+            {navItem.text}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  nav {
+    padding: 0 var(--spacing-3);
+  }
+
+  nav:not(:last-child) {
+    padding-bottom: var(--spacing-5);
+  }
+
+  @media (min-width: 768px) {
+    nav {
+      border-left: 1px solid black;
+    }
+  }
+
+  .nav-list-header {
+    height: max-content;
+    font-size: var(--font-size-base);
+    font-weight: bold;
+    margin-bottom: var(--spacing-2);
+  }
+
+  li:not(:last-child) {
+    margin-bottom: var(--spacing-1);
+  }
+
+  .truncate {
+    display: block;
+    max-width: 10rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .link {
+    font-size: var(--font-size-sm);
+    font-weight: bold;
+    padding: var(--spacing-1);
+  }
+
+  .bg-primary {
+    background-color: var(--color-primary);
+  }
+
+  .bg-secondary {
+    background-color: var(--color-secondary);
+  }
+
+  .txt-white {
+    color: white;
+  }
+
+  .txt-black {
+    color: black;
+  }
+</style>

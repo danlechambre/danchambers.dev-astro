@@ -1,3 +1,152 @@
-p {
+/* 
+Breakpoint reference (tailwind)
+sm	640px	@media (min-width: 640px) { ... }
+md	768px	@media (min-width: 768px) { ... }
+lg	1024px	@media (min-width: 1024px) { ... }
+xl	1280px	@media (min-width: 1280px) { ... }
+2xl	1536px	@media (min-width: 1536px) { ... }
+*/
+
+:root {
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+
+  --color-primary: #e50ba7;
+  --color-primary-light: #f86dd0;
+  --color-secondary: #fcf12a;
+  --color-tertiary: #8ac1fc;
+  --color-black: #212121;
+
+  --type-ratio-sm: 1.125;
+  --type-ratio-md: 1.2;
+  --type-ratio-lg: 1.25;
+  --type-ratio-xl: 1.333;
+
+  --font-size-base: 1rem;
+  --type-ratio: var(--type-ratio-sm);
+
+  --font-size-sm: calc(var(--font-size-base) / var(--type-ratio));
+  --font-size-md: calc(var(--font-size-base) * var(--type-ratio));
+  --font-size-lg: calc(var(--font-size-md) * var(--type-ratio));
+  --font-size-xl: calc(var(--font-size-lg) * var(--type-ratio));
+  --font-size-xxl: calc(var(--font-size-xl) * var(--type-ratio));
+
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-bold: 600;
+  --font-weight-bolder: 700;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --type-ratio: var(--type-ratio-md);
+  }
+}
+@media (min-width: 768px) {
+  :root {
+    --type-ratio: var(--type-ratio-lg);
+  }
+}
+@media (min-width: 1024px) {
+  :root {
+    --type-ratio: var(--type-ratio-xl);
+  }
+}
+
+body {
+  height: 100%;
   line-height: 1.5;
+  color: var(--color-black);
+}
+
+p,
+li,
+h1,
+h2,
+h3,
+h4 {
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+h1 {
+  font-size: var(--font-size-xxl);
+}
+
+h2 {
+  font-size: var(--font-size-xl);
+}
+
+h3 {
+  font-size: var(--font-size-lg);
+}
+
+h4 {
+  font-size: var(--font-size-md);
+}
+
+p {
+  font-size: var(--font-size-base);
+}
+
+.bg-dots {
+  background-size: 15px 15px;
+  background-image: radial-gradient(at top left, black 1px, transparent 1px);
+}
+
+.markdown ol,
+.markdown ul {
+  list-style: initial;
+  margin-left: var(--spacing-5);
+}
+
+.markdown li {
+  margin-bottom: var(--spacing-3);
+}
+
+.markdown blockquote,
+.markdown body,
+.markdown dd,
+.markdown dl,
+.markdown figure,
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6,
+.markdown hr,
+.markdown p {
+  margin-bottom: var(--spacing-5);
+}
+
+.pre-wrapper {
+  position: relative;
+  padding: var(--spacing-3) var(--spacing-5);
+  box-sizing: border-box;
+  background: #0e1116;
+  background-clip: padding-box;
+  border: solid 2px transparent;
+  border-radius: 10px;
+  margin-bottom: var(--spacing-5);
+}
+
+.pre-wrapper:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: -2px;
+  border-radius: inherit;
+  background: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-secondary)
+  );
 }

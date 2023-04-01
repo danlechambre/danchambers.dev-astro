@@ -1,10 +1,30 @@
 ---
+import PageHeading from "@components/PageHeading.astro";
 import WritingsLayout from "./WritingsLayout.astro";
 
 const { frontmatter } = Astro.props;
 ---
 
 <WritingsLayout title={frontmatter.title}>
-  <h1>{frontmatter.title}</h1>
-  <slot />
+  <PageHeading text={frontmatter.title} />
+  <div class="container markdown">
+    <slot />
+  </div>
 </WritingsLayout>
+
+<style>
+  .container {
+    max-width: 60ch;
+  }
+</style>
+
+<script>
+  const preNodes = document.querySelectorAll(".markdown pre");
+
+  preNodes.forEach((x) => {
+    const wrapper = document.createElement("div");
+    wrapper.classList.add("pre-wrapper");
+    wrapper.appendChild(x.cloneNode(true));
+    x.parentNode?.replaceChild(wrapper, x);
+  });
+</script>

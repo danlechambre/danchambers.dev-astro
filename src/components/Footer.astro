@@ -1,38 +1,122 @@
 ---
+import gitHubLogo from "@images/github-mark-white.svg";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 type Props = Record<string, never>;
 ---
 
-<p>
-  All materials &copy; <span property="cc:attributionName">Dan Chambers</span>.
-</p>
-<p>
-  All content on <span property="dct:title">danchambers.dev</span> is licensed under
-  <a
-    href="http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1"
-    target="_blank"
-    rel="license noopener noreferrer"
-    style="display:inline-block;"
-    >CC BY-SA 4.0<img
-      style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
-      src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"
-      alt=""
-    /><img
-      style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
-      src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"
-      alt=""
-    /><img
-      style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
-      src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"
-      alt=""
-    /></a
-  >. Share freely but provide attribution.
-</p>
-<p>
-  Site source code is licensed under <a
-    href="https://github.com/dc-sts/danchambers.dev/blob/main/LICENSE"
-    >GNU General Public License v3.0</a
-  > and is available on <a href="https://github.com/dc-sts/danchambers.dev"
-    >GitHub</a
-  >.
-</p>
+<div class="footer-wrapper">
+  <div class="panel">
+    <p>
+      All materials &copy;
+      <span property="cc:attributionName">Dan Chambers</span>.
+    </p>
+    <p>
+      All content on <span class="underline" property="dct:title"
+        >danchambers.dev</span
+      > is licensed under <span class="inline-wrapper">
+        <a
+          class="license-link"
+          href="http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1"
+          target="_blank"
+          rel="license noopener noreferrer"
+        >
+          <span>CC BY-SA 4.0</span>
+          <img
+            class="license-img"
+            src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"
+            alt=""
+          />
+          <img
+            class="license-img"
+            src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"
+            alt=""
+          />
+          <img
+            class="license-img"
+            src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"
+            alt=""
+          />
+        </a>
+      </span>. Share freely but provide attribution.
+    </p>
+    <p>
+      Site source code is licensed under <a
+        class="license-link"
+        href="https://github.com/dc-sts/danchambers.dev/blob/main/LICENSE"
+        >GNU General Public License v3.0</a
+      > and is available on <a
+        class="github-link"
+        href="https://github.com/dc-sts/danchambers.dev"
+        >GitHub<img class="license-img" src={gitHubLogo} alt="" /></a
+      >.
+    </p>
+  </div>
+</div>
+
+<style>
+  .underline {
+    text-decoration: underline;
+    font-weight: bold;
+  }
+
+  .highlight {
+    background-color: var(--color-primary);
+    font-weight: bold;
+    color: white;
+    padding: 0 var(--spacing-2);
+  }
+
+  .inline-flex-container {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .fixed-height {
+    height: 1.2rem;
+  }
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    max-height: 1.2rem;
+    padding: 0 var(--spacing-1);
+    font-weight: bold;
+    color: white;
+  }
+
+  .license-link {
+    background-color: var(--color-primary);
+  }
+
+  .github-link {
+    background-color: black;
+  }
+
+  .license-img {
+    height: var(--font-size-base);
+    padding-left: var(--spacing-1);
+  }
+
+  .footer-wrapper {
+    background-size: 15px 15px;
+    background-image: linear-gradient(
+        to right,
+        rgba(71, 181, 255, 0.2) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, rgba(71, 181, 255, 0.2) 1px, transparent 1px);
+    border-top: 1px solid black;
+    padding: var(--spacing-3);
+    line-height: 1.8rem;
+  }
+
+  .panel {
+    margin-bottom: var(--spacing-5);
+  }
+
+  a,
+  p {
+    font-size: var(--font-size-sm);
+  }
+</style>

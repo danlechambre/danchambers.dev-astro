@@ -3,11 +3,54 @@
 type Props = Record<string, never>;
 ---
 
-<a href="/">Dan Chambers</a>
+<div class="header-wrapper bg-dots">
+  <a class="heading" href="/">Dan Chambers</a>
+</div>
 <nav>
   <ul>
-    <li><a href="/work/">Work</a></li>
-    <li><a href="/writings/">Writings</a></li>
-    <li><a href="/about/">About</a></li>
+    <li><a class="nav-link" href="/work/">Work</a></li>
+    <li><a class="nav-link" href="/writings/">Writings</a></li>
+    <li><a class="nav-link" href="/about/">About</a></li>
   </ul>
 </nav>
+
+<style>
+  .header-wrapper {
+    height: 150px;
+    display: flex;
+    align-items: flex-end;
+    border-bottom: 1px solid var(--color-black);
+  }
+
+  .heading {
+    font-size: var(--font-size-xxl);
+    font-weight: bold;
+    margin-left: var(--spacing-3);
+    z-index: 1000;
+  }
+
+  ul {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  li {
+    padding: var(--spacing-2);
+    font-weight: var(--font-weight-bold);
+  }
+
+  .nav-link {
+    font-size: var(--font-size-md);
+    padding-bottom: 2px;
+    display: inline-block;
+    background-image: linear-gradient(var(--color-primary-light) 0 0);
+    background-position: 0 70%;
+    background-size: 0% 10px;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s;
+  }
+
+  .nav-link:hover {
+    background-size: 100% 10px;
+  }
+</style>
