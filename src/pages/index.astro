@@ -1,9 +1,10 @@
 ---
-import PageLayout from "@layouts/PageLayout.astro";
+import PageHeading from "@components/PageHeading.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
 ---
 
-<PageLayout>
-  <h1>Hello!</h1>
+<BaseLayout>
+  <PageHeading text="Hello" />
   <p>
     I'm a web developer and general tinkerer based in the UK. My ambition is to
     become great at what I do and build great things whilst getting there. If I
@@ -20,4 +21,10 @@ import PageLayout from "@layouts/PageLayout.astro";
     don't get as much time to spend on it as I'd like. Like my actual garden,
     people are welcome to visit and enjoy it, but it's mostly for my enjoyment.
   </p>
-</PageLayout>
+</BaseLayout>
+
+<style>
+  p {
+    margin-bottom: var(--spacing-5);
+  }
+</style>

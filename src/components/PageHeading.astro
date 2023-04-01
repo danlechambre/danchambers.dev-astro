@@ -1,0 +1,15 @@
+---
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<h1 class="page-heading">{text}</h1>
+
+<style>
+  .page-heading {
+    font-weight: bold;
+  }
+</style>

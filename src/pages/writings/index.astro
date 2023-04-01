@@ -1,5 +1,6 @@
 ---
 import Article from "@components/Article.astro";
+import PageHeading from "@components/PageHeading.astro";
 import WritingsLayout from "@layouts/WritingsLayout.astro";
 
 const pageTitle = "Writings";
@@ -8,7 +9,7 @@ const allArticles = await Astro.glob("./*.md");
 ---
 
 <WritingsLayout title={pageTitle}>
-  <h1>{pageTitle}</h1>
+  <PageHeading text={pageTitle} />
   <ul>
     {
       allArticles.map((a) => (

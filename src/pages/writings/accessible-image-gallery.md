@@ -39,7 +39,7 @@ return (
 
 ESLint was quick to yell at me with the following:
 
-```
+```console
 Visible, non-interactive elements with click handlers must have at least one keyboard listener.
 eslintjsx-a11y/click-events-have-key-events
 

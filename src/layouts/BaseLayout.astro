@@ -1,4 +1,6 @@
 ---
+import "@styles/normalize.css";
+import "@styles/global.css";
 import Footer from "@components/Footer.astro";
 import Header from "@components/Header.astro";
 
@@ -21,10 +23,37 @@ const titleText = title ? ` - ${title}` : undefined;
     <title>{`Dan Chambers${titleText ?? ""}`}</title>
   </head>
   <body>
-    <Header />
-    <main>
-      <slot />
-    </main>
-    <Footer />
+    <div class="container">
+      <header>
+        <Header />
+      </header>
+      <main>
+        <slot />
+      </main>
+      <footer>
+        <Footer />
+      </footer>
+    </div>
   </body>
 </html>
+
+<style>
+  .container {
+    min-height: 100vh;
+    max-width: 85ch;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  header,
+  footer {
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+
+  main {
+    flex-grow: 1;
+    padding: var(--spacing-3);
+  }
+</style>

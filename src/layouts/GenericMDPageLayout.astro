@@ -1,0 +1,19 @@
+---
+import PageHeading from "@components/PageHeading.astro";
+import BaseLayout from "./BaseLayout.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout>
+  <PageHeading text={frontmatter.title} />
+  <div class="container markdown">
+    <slot />
+  </div>
+</BaseLayout>
+
+<style>
+  .container {
+    max-width: 60ch;
+  }
+</style>
