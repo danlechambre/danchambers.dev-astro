@@ -4,27 +4,61 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-  <PageHeading text="Hello" />
-  <p>
-    I'm a web developer and general tinkerer based in the UK. My ambition is to
-    become great at what I do and build great things whilst getting there. If I
-    can do this for great causes? All the better!
-  </p>
-  <p>
-    Building with React and TypeScript is what keeps the cash money flowing. But
-    I love building with shiny new toys when I'm off the clock.
-  </p>
-  <p>
-    This is my site. It's built with Astro. I take a digital gardening approach
-    to its design and maintenance. Like my actual garden, some parts may lay in
-    ruin if I get bored or want to work on another bit. Like my actual garden, I
-    don't get as much time to spend on it as I'd like. Like my actual garden,
-    people are welcome to visit and enjoy it, but it's mostly for my enjoyment.
-  </p>
+  <div class="prose">
+    <div class="heading">
+      <PageHeading text="Hello!" />
+    </div>
+    <p>I'm a front-end developer and all-round creative based in the UK.</p>
+    <p>
+      I love what I do. I love that I get better at it every day. I love that
+      peeps give me money to do it (I even do it for free 🤫). I love that it
+      nearly gets me to the end of level baddie in Maslow's Pyramid.
+    </p>
+    <p>
+      Day-to-day, building with React and TypeScript is what keeps the cash
+      money flowing. When I'm not on the clock, I'll build with whatever takes
+      my fancy (code or otherwise). Right now, that's mostly <a
+        href="https://threejs.org/"
+        target="_blank"
+        rel="noopener noreferrer">Three.js</a
+      > and plywood (as in the actual wood, not this <a
+        href="https://plywood.imply.io/"
+        target="_blank"
+        rel="noopener noreferrer">JS library</a
+      > - who knew!).
+    </p>
+    <p>
+      Welcome to my site. It's built with <a
+        href="https://astro.build"
+        target="_blank"
+        rel="noopener noreferrer">Astro</a
+      >. I take a digital gardening approach to its design and maintenance. Like
+      my actual garden, I don't get as much time to spend on it as I'd like and
+      some bits may go to wrack and ruin whilst I'm putting in a new birdbath.
+      Like my actual garden, people are welcome to visit and enjoy it, but it's
+      mostly for me - if I want to put a hideous gnome in the flower bed - then
+      I will.
+    </p>
+  </div>
 </BaseLayout>
 
 <style>
   p {
     margin-bottom: var(--spacing-5);
+  }
+
+  .prose {
+    max-width: 60ch;
+    margin: auto;
+  }
+
+  @media (min-width: 640px) {
+    .heading {
+      padding: var(--spacing-5);
+    }
+
+    .prose {
+      text-align: center;
+    }
   }
 </style>

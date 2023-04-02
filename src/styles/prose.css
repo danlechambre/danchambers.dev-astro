@@ -1,13 +1,13 @@
-.markdown ol,
-.markdown ul {
+.prose ol,
+.prose ul {
   margin-left: var(--spacing-5);
 }
 
-.markdown ul > li {
+.prose ul > li {
   position: relative;
 }
 
-.markdown ul > li:before {
+.prose ul > li:before {
   position: absolute;
   top: calc(50% - 5px);
   margin-left: calc(-1 * var(--spacing-3));
@@ -19,7 +19,7 @@
   border-left: 5px solid var(--color-tertiary);
 }
 
-.markdown a {
+.prose a {
   color: var(--color-tertiary);
   text-decoration: underline;
   text-decoration-color: rgb(var(--color-tertiary-rgb), var(--opacity-50));
@@ -29,49 +29,49 @@
   transition: text-decoration-color 200ms;
 }
 
-.markdown a:hover {
+.prose a:hover {
   text-decoration-color: var(--color-tertiary);
 }
 
-.markdown li {
+.prose li {
   margin-bottom: var(--spacing-3);
 }
 
-.markdown blockquote,
-.markdown body,
-.markdown dd,
-.markdown dl,
-.markdown figure,
-.markdown h1,
-.markdown h2,
-.markdown h3,
-.markdown h4,
-.markdown h5,
-.markdown h6,
-.markdown hr,
-.markdown p {
+.prose blockquote,
+.prose body,
+.prose dd,
+.prose dl,
+.prose figure,
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6,
+.prose hr,
+.prose p {
   margin-bottom: var(--spacing-5);
 }
 
-.markdown blockquote {
+.prose blockquote {
   padding-left: var(--spacing-5);
   border-left: 3px solid var(--color-tertiary);
   font-style: italic;
   color: var(--color-grey-1);
 }
 
-.markdown code {
+.prose code {
   font-size: 0.85rem;
 }
 
-.markdown p code {
+.prose p code {
   display: inline-block;
   background-color: rgb(242, 242, 242);
   padding: 0 0.25rem;
   border-radius: 3px;
 }
 
-.markdown .code-title {
+.prose .code-title {
   font-size: var(--font-size-sm);
   display: inline-block;
   background-color: var(--color-primary-darker);
