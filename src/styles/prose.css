@@ -3,13 +3,26 @@
   margin-left: var(--spacing-5);
 }
 
-.prose ul > li {
+.prose ul > li,
+.prose ol > li {
   position: relative;
+}
+
+.prose ol {
+  counter-reset: li;
+}
+
+.prose ol > li:before {
+  content: counter(li) ".";
+  counter-increment: li;
+  position: absolute;
+  color: var(--color-tertiary);
+  margin-left: calc(-1 * var(--spacing-5));
 }
 
 .prose ul > li:before {
   position: absolute;
-  top: calc(50% - 5px);
+  top: 0.45rem;
   margin-left: calc(-1 * var(--spacing-3));
   content: "";
   width: 0;

@@ -2,7 +2,7 @@
 layout: ../../layouts/ArticleLayout.astro
 title: "Interactive Non-interactive Elements"
 pubDate: 2023-07-01
-description: "It's easy to forget the basics"
+description: It's easy to forget the basics
 author: "Dan"
 tags: ["a11y"]
 ---

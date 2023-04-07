@@ -1,16 +1,16 @@
 ---
 import PageHeading from "@components/PageHeading.astro";
-import WritingsLayout from "./WritingsLayout.astro";
+import WritingLayout from "./WritingLayout.astro";
 
 const { frontmatter } = Astro.props;
 ---
 
-<WritingsLayout title={frontmatter.title}>
+<WritingLayout title={frontmatter.title}>
   <PageHeading text={frontmatter.title} />
   <div class="container prose">
     <slot />
   </div>
-</WritingsLayout>
+</WritingLayout>
 
 <style>
   .container {

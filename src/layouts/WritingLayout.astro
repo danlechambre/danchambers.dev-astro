@@ -2,7 +2,7 @@
 import NavList from "@components/NavList.astro";
 import BaseLayout from "./BaseLayout.astro";
 
-const articlesGlob = await Astro.glob("../pages/writings/*.md");
+const articlesGlob = await Astro.glob("../pages/writing/*.md");
 
 const tags = [
   ...new Set(
@@ -10,7 +10,7 @@ const tags = [
       .map((a) => a.frontmatter.tags)
       .flat()
       .map((t) => ({
-        url: `/writings/${t}`,
+        url: `/writing/${t}`,
         text: t,
       }))
   ),
@@ -22,13 +22,18 @@ const articles = articlesGlob.map((a) => ({
 }));
 ---
 
-<BaseLayout title="Writings">
+<BaseLayout title="Writing">
   <div class="wrapper">
     <section>
       <slot />
     </section>
     <aside>
-      <NavList headerText="Tags" navItems={tags} variant="secondary" />
+      <NavList
+        headerText="Tags"
+        navItems={tags}
+        variant="secondary"
+        showInline
+      />
       <NavList headerText="Articles" navItems={articles} />
     </aside>
   </div>

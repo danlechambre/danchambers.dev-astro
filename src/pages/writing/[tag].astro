@@ -1,6 +1,6 @@
 ---
 import Article from "@components/Article.astro";
-import WritingsLayout from "@layouts/WritingsLayout.astro";
+import WritingLayout from "@layouts/WritingLayout.astro";
 import type { MarkdownInstance } from "astro";
 
 interface Props {
@@ -29,8 +29,8 @@ const { tag } = Astro.params;
 const { articles } = Astro.props;
 ---
 
-<WritingsLayout title={tag}>
-  <h1>Writings tagged with {tag}</h1>
+<WritingLayout title={tag}>
+  <h1>Writing tagged with {tag}</h1>
   <ul>
     {
       articles.map((a) => (
@@ -44,4 +44,4 @@ const { articles } = Astro.props;
       ))
     }
   </ul>
-</WritingsLayout>
+</WritingLayout>

@@ -1,6 +1,4 @@
 ---
-import { colors } from "src/css-variables";
-
 export interface NavItem {
   url: string;
   text: string;
@@ -10,9 +8,10 @@ interface Props {
   headerText: string;
   navItems: NavItem[];
   variant?: "primary" | "secondary";
+  showInline?: boolean;
 }
 
-const { headerText, navItems, variant = "primary" } = Astro.props;
+const { headerText, navItems, variant = "primary", showInline } = Astro.props;
 
 const classMap = {
   primary: {
@@ -26,11 +25,13 @@ const classMap = {
 };
 
 const classes = classMap[variant];
+
+const ulClasses = showInline ? "flex" : "";
 ---
 
 <nav class="bg-dots">
   <h3 class="nav-list-header">{headerText}</h3>
-  <ul>
+  <ul class={ulClasses}>
     {
       navItems.map((navItem) => (
         <li class={`truncate ${classes.li}`}>
@@ -97,5 +98,14 @@ const classes = classMap[variant];
 
   .txt-black {
     color: black;
+  }
+
+  .flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .flex > li {
+    margin-right: 6px;
   }
 </style>
